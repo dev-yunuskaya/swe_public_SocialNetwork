@@ -126,4 +126,3 @@ scripts/    Demo seed scripts
 
 ---
 
-**Author:** Yunus Kaya · CSE3044 Software Engineering Term Project
