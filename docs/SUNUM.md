@@ -41,7 +41,11 @@ npm test
 - [ ] [MIMARI.md](MIMARI.md) — “nasıl yapıldı” için teknik slayt notu
 - [ ] Postman koleksiyonu: `docs/postman_collection.json` (isteğe bağlı canlı API gösterimi)
 
-### 5. Slayt / anlatım planı (önerilen sıra)
+### 5. Sunum metni (İngilizce, slayt slayt)
+
+- [ ] [PRESENTATION_NOTES.md](PRESENTATION_NOTES.md) — konuşmacı notları + PPTX düzeltme listesi (React → HTML/JS)
+
+### 6. Slayt / anlatım planı (önerilen sıra)
 
 1. Problem ve kapsam (sosyal ağ, CSE3044 gereksinimleri)
 2. Mimari diyagram: tarayıcı → Express → PostgreSQL
@@ -79,7 +83,9 @@ npm start
 
 ---
 
-## C. Canlı demo senaryosu (sırayla, ~5–7 dk)
+## C. Canlı demo senaryosu
+
+Ayrıntılı İngilizce anlatım: [PRESENTATION_NOTES.md](PRESENTATION_NOTES.md) → *Live demo script* (sırayla, ~5–7 dk)
 
 Sunumda ekranda **bu sırayı** izleyin:
 

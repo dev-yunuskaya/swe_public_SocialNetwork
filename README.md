@@ -3,7 +3,8 @@
 A small social network built with **Node.js**, **Express**, **PostgreSQL** (Prisma), and a plain **HTML/CSS/JavaScript** frontend. Users can register, follow others, post content with hashtags, like and comment, receive notifications, send direct messages, and see personalized recommendations.
 
 **Course documents:** `Social_Network_RSD.pdf`, `Social_Network_DSD.pdf`  
-**API reference:** `docs/API.md` · **Postman:** `docs/postman_collection.json`
+**API reference:** `docs/API.md` · **Postman:** `docs/postman_collection.json`  
+**Presentation:** `docs/PRESENTATION_NOTES.md` (slide-by-slide speaker notes)
 
 ---
 
