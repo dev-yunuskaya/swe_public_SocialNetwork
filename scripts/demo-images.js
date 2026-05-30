@@ -4,10 +4,13 @@ const path = require('path');
 const DEMO_DIR = path.join(process.cwd(), 'uploads', 'demo');
 
 async function downloadImage(imageSeed, dest) {
+  const encoded = encodeURIComponent(imageSeed);
+  // picsum: her benzersiz seed = farkli gorsel (oncelikli)
+  // loremflickr: lock parametresi seed basina sabit ve ayri gorsel
   const tags = imageSeed.split('-').filter(Boolean).slice(0, 4).join(',');
   const sources = [
-    `https://loremflickr.com/640/400/${encodeURIComponent(tags)}/all`,
-    `https://picsum.photos/seed/${encodeURIComponent(imageSeed)}/640/400`,
+    `https://picsum.photos/seed/${encoded}/640/400`,
+    `https://loremflickr.com/640/400/${encodeURIComponent(tags)}/all?lock=${encoded}`,
   ];
 
   for (const url of sources) {
@@ -19,11 +22,11 @@ async function downloadImage(imageSeed, dest) {
       fs.writeFileSync(dest, buf);
       return;
     } catch {
-      // sonraki kaynaga dene
+      // try next source
     }
   }
 
-  throw new Error('Gorsel indirilemedi');
+  throw new Error('Could not download image');
 }
 
 async function ensurePostImage(imageSeed) {

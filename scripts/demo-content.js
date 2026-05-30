@@ -90,13 +90,21 @@ function slugImageSeed(hashtag, text) {
   return `${hashtag}-${words.join('-')}`.slice(0, 48);
 }
 
+let postImageSeq = 0;
+
+function uniqueImageSeed(hashtag, line, index) {
+  const base = line.img || slugImageSeed(hashtag, line.t);
+  postImageSeq += 1;
+  return `${base}-sn${postImageSeq}-L${index}`.slice(0, 80);
+}
+
 function buildCategoryPosts(hashtag, clusterKey, lines) {
   const users = DEMO_CLUSTERS[clusterKey];
   return lines.map((line, i) => {
     const user = users[i % users.length];
     const content = `${line.t} #${hashtag}`;
     const withImage = i % 2 === 0;
-    const imageSeed = withImage ? line.img || slugImageSeed(hashtag, line.t) : null;
+    const imageSeed = withImage ? uniqueImageSeed(hashtag, line, i) : null;
     return P(user, content, imageSeed);
   });
 }
@@ -105,9 +113,9 @@ const DEMO_POSTS = [
   ...CATEGORY_MAP.flatMap(({ tag, cluster }) =>
     buildCategoryPosts(tag, cluster, POST_LINES[tag])
   ),
-  P('demo_ayse', 'Merhaba Can! Ortak takip testi — feed ve mesaj. #technology', 'team-onboarding-office'),
+  P('demo_ayse', 'Merhaba Can! Ortak takip testi — feed ve mesaj. #technology', 'demo-ayse-team-onboarding'),
   P('demo_ayse', 'Sprint review notlari paylasildi. #technology'),
-  P('demo_can', 'Selam Ayse! Karsilikli takip calisiyor. #sports', 'football-stadium-crowd'),
+  P('demo_can', 'Selam Ayse! Karsilikli takip calisiyor. #sports', 'demo-can-football-stadium'),
   P('demo_can', 'Antrenman ozeti: 6x800m interval. #sports'),
 ];
 

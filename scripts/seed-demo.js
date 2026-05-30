@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
 const bcrypt = require('bcrypt');
 const { PrismaClient } = require('@prisma/client');
 const {
@@ -8,7 +10,7 @@ const {
   DEMO_MUTUAL_FOLLOWS,
   INTEREST_AREAS,
 } = require('./demo-content');
-const { ensurePostImage, ensureDemoImages } = require('./demo-images');
+const { ensurePostImage, ensureDemoImages, DEMO_DIR } = require('./demo-images');
 
 const prisma = new PrismaClient();
 
@@ -145,8 +147,13 @@ async function main() {
   if (reset) {
     await resetDemoPosts(userIds);
     await resetDemoFollows(userIds);
+    if (fs.existsSync(DEMO_DIR)) {
+      for (const name of fs.readdirSync(DEMO_DIR)) {
+        if (name.endsWith('.jpg')) fs.unlinkSync(path.join(DEMO_DIR, name));
+      }
+    }
     // eslint-disable-next-line no-console
-    console.log('Demo verileri sifirlaniyor...');
+    console.log('Demo verileri sifirlaniyor (gorseller yeniden indirilecek)...');
   }
 
   await seedFollowGraph(users);
