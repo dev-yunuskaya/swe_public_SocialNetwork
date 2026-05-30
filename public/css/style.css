@@ -41,6 +41,7 @@ a:hover {
   max-width: 720px;
   margin: 0 auto;
   padding: 1rem;
+  overflow-x: hidden;
 }
 
 .card {
@@ -192,14 +193,33 @@ textarea {
   border-radius: 12px;
   padding: 1rem;
   margin-bottom: 1rem;
+  overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
 }
 
-.post-card img {
-  max-width: 100%;
-  border-radius: 8px;
+/* Keeps post images inside card/content width */
+.post-media {
   margin-top: 0.5rem;
-  max-height: 320px;
-  object-fit: cover;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f1f5f9;
+  line-height: 0;
+}
+
+.post-media img,
+.post-card > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: min(420px, 70vh);
+  object-fit: contain;
+  object-position: center;
+  margin: 0;
+  border-radius: 8px;
 }
 
 .post-meta {
@@ -385,6 +405,8 @@ textarea {
 .post-content {
   margin: 0.5rem 0;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .post-actions {

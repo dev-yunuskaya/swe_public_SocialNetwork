@@ -105,7 +105,7 @@
       async function loadPost() {
         currentPost = await api(`/api/posts/${postId}`);
         const img = currentPost.image_path
-          ? `<img src="${imageUrl(currentPost.image_path)}" alt="Post image" />`
+          ? `<div class="post-media"><img src="${imageUrl(currentPost.image_path)}" alt="Post image" /></div>`
           : '';
 
         const isAuthor = me && currentPost.author_id === me.id;

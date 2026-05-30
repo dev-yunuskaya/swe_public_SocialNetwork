@@ -49,7 +49,7 @@ function mountNav(active) {
 
 function renderPostCard(post, options = {}) {
   const img = post.image_path
-    ? `<img src="${imageUrl(post.image_path)}" alt="Post image" />`
+    ? `<div class="post-media"><img src="${imageUrl(post.image_path)}" alt="Post image" loading="lazy" /></div>`
     : '';
   const detailLink = options.showLink !== false
     ? `<a href="/post.html?id=${post.id}">Details / Comments</a>`

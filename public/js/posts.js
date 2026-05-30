@@ -60,7 +60,7 @@ function renderPostActions(post, options = {}) {
 
 function renderInteractivePostCard(post, options = {}) {
   const img = post.image_path
-    ? `<img src="${imageUrl(post.image_path)}" alt="Post image" />`
+    ? `<div class="post-media"><img src="${imageUrl(post.image_path)}" alt="Post image" loading="lazy" /></div>`
     : '';
   const category = primaryCategory(post);
   const categoryBadge = category
