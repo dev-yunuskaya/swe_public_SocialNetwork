@@ -1,5 +1,7 @@
 # Testler
 
+> Hoca / İngilizce teslim için resmi doküman: **[TESTING.md](TESTING.md)**
+
 Projede **62 otomatik test** bulunur. Hepsi **Jest** ile çalışır; API testleri **Supertest** ile gerçek HTTP isteği atar (mock yok).
 
 ## Nasıl çalıştırılır?

@@ -5,6 +5,7 @@
 - [ ] RSD (Software Requirements Specification)
 - [ ] DSD (Design Specification Document)
 - [ ] Kaynak kod + README
+- [ ] Testing document (`docs/TESTING.md`)
 - [ ] Postman koleksiyonu (`docs/postman_collection.json`)
 
 ## Teknik gereksinimler
